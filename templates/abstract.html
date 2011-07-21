@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>TAO'S NEWS</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="language" content="en" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link type="text/css" href="http://www.test_server.com/demo.css" rel="stylesheet"/>
+
+
+		
+	</head>
+
+	<body>
+		<div>	
+			<div id="header">
+					<h1><a href="/">TAO'S NEWS</a></h1>	
+			</div>
+
+			<div id="blog">
+				<h4 class="subtitle">文章</h4>
+				{% for p in artical_list %}
+					<div class="abstract_box">
+						<div class="date_box">
+							<span class="year_month">{{p.creation_time.year}}.{{p.creation_time.month}}</span>
+							<span class="day">{{p.creation_time.day}}</span>
+						</div>	
+						<div class="abstract">
+							<h2 class="abstract_title"><a href="/blog/{{p.id}}">{{p.title}}</a></h2>
+							<p class="abstract_content">{{p.content|slice:"120"}}</p>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		
+			<div id="sidebar">
+				<div class= "box">
+				<h4 class="subtitle">标签</h4>
+				{% for tag in tags %}
+					<a href="/articalsInTag/{{tag.id}}">{{tag.name}}</a>		
+				{% endfor %}
+				</div>
+			</div>
+		</div>
+	</body>
+ </html>
