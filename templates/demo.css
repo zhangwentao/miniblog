@@ -1,0 +1,98 @@
+a{
+    text-decoration: none;
+}
+.artical_title{
+        font-family:黑体;
+	font-style:bold;
+        font-size:20px;
+        color:#2B9A23;
+	margin:0px;
+}
+
+.abstract{
+    	position:relative;
+	max-width:540px;
+	float:left;
+	padding-bottom:0px;
+	
+}
+.abstract_content
+{
+	margin:5px 0px 20px 0px;
+	text-indent: 26px;
+}
+.article_link
+{
+	font-color:#000000;
+}
+.abstract_box{
+	min-height:60px;
+	max-height:500px;
+	padding:10px 0px 0px 0px;
+	position:relative;	
+}
+.abstract_title
+{
+	margin:0px;
+}
+.subtitle
+{
+	border-bottom:solid;
+	border-bottom-width:2px;
+	margin-bottom:4px;
+
+}
+.box{
+}
+
+
+
+.date_box{
+	width:30px;
+	height:30px;
+	padding:10px;
+	border:dotted;
+	border-width:2px;
+	float:left;	
+	margin:0px 10px 0px 5px;
+}
+.year_month{
+	font-size:10px;
+	text-align:center;
+	margin:0px;
+	position:relative;
+	left:-7px;
+	top:0px;
+		
+}
+
+.day{
+	font-family:黑体;
+	font-weight:bold;
+	font-size:20px;
+	position:relative;
+	top:0px;
+}
+
+
+#blog{
+        float:left;
+        width:50%;
+        position:relative;
+        top:100px;
+        left:100px;
+}
+
+#sidebar{
+        position:relative;
+        float:left;
+        width:25%;
+        height:500px;
+        top:100px;
+        left:140px;
+        
+}       
+#header{
+	position:absolute;
+	left:100px;
+        }       
