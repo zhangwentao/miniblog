@@ -1,3 +1,10 @@
+/* Clearfix */
+.clearfix:after {
+	content: "\20";
+	display: block;
+	clear: both
+}
+
 a{
     text-decoration: none;
 }
