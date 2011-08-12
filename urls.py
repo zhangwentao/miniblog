@@ -19,4 +19,5 @@ urlpatterns = patterns('',
 	(r'^crossdomain.xml$',cross),
 	(r'^blog/(?P<id>\d+)/$',artical),
 	(r'^articalsInTag/(?P<id>\d+)/$',articalsInTag),
+	(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': '/home/wentao_zhang/wentao.me/static/'}),
 )
