@@ -27,7 +27,7 @@
 							<span class="day">{{p.creation_time.day}}</span>
 						</div>	
 						<div class="abstract">
-							<h2 class="abstract_title"><a href="/blog/{{p.id}}">{{p.title}}</a></h2>
+							<h2 class="abstract_title"><a href="/blog/{{p.id}}/">{{p.title}}</a></h2>
 							<p class="abstract_content">{{p.content|slice:"120"}}</p>
 						</div>
 					</div>
@@ -38,7 +38,7 @@
 				<div class= "box">
 				<h4 class="subtitle">标签</h4>
 				{% for tag in tags %}
-					<a href="/articalsInTag/{{tag.id}}">{{tag.name}}</a>		
+					<a href="/articalsInTag/{{tag.id}}/">{{tag.name}}</a>		
 				{% endfor %}
 				</div>
 			</div>
