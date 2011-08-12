@@ -1,4 +1,4 @@
-from blogs.models import Artical,Artical_Tag,Tag
+from miniblog.blogs.models import Artical,Artical_Tag,Tag
 from django.contrib import admin
 
 admin.site.register(Artical)

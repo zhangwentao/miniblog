@@ -1,6 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse
-from blogs.models import Artical,Tag,Artical_Tag
+from miniblog.blogs.models import Artical,Tag,Artical_Tag
 from django.shortcuts import render_to_response
 
 tags = Tag.objects.all()
