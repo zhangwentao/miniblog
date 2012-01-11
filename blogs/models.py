@@ -12,3 +12,6 @@ class Artical(models.Model):
 class Artical_Tag(models.Model):
 	artical_id = models.BigIntegerField()
 	tag_id	= models.BigIntegerField()
+
+class Touch_Ip(models.Model):
+	ip = models.CharField(max_length = 30)

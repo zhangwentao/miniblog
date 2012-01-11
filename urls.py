@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
-from blogs.views import test,draw,cross,artical,articalsInTag
+from blogs.views import test,draw,cross,artical,articalsInTag,writeip,readip,about
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -16,8 +16,11 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 	(r'^draw/$',draw),
 	(r'^$',test),
+	(r'^writeip/(?P<ip>.*)$',writeip),
+	(r'^readip$',readip),
 	(r'^crossdomain.xml$',cross),
 	(r'^blog/(?P<id>\d+)/$',artical),
 	(r'^articalsInTag/(?P<id>\d+)/$',articalsInTag),
+	(r'^about/$',about),
 	(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': '/home/wentao_zhang/wentao.me/static/'}),
 )
