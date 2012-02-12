@@ -23,6 +23,9 @@ def articalsInTag(request,id):
 def about(req):
 	return render_to_response('about.html')
 
+def ip(request):
+	return render_to_response('iptest.html')
+
 def draw(request):
 	return HttpResponse('2');
 	
