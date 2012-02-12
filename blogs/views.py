@@ -36,7 +36,7 @@ def writeip(request):
         tip = Touch_Ip.objects.get(id = 1)
         tip.ip = request.GET['ip']
         tip.save()
-        return HttpResponse(ip)	
+        return HttpResponse('success')	
 
 def readip(request):
 	tip = Touch_Ip.objects.get(id = 1)
