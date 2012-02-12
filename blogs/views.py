@@ -32,9 +32,9 @@ def draw(request):
 def cross(request):
 	return render_to_response('crossdomain.xml',{})
 
-def writeip(request,ip):
+def writeip(request):
         tip = Touch_Ip.objects.get(id = 1)
-        tip.ip = ip
+        tip.ip = request.GET['ip']
         tip.save()
         return HttpResponse(ip)	
 
