@@ -1,8 +1,8 @@
 # Create your views here.
 from django.http import HttpResponse
-from miniblog.blogs.models import Artical,Tag,Artical_Tag,Touch_Ip
+from miniblog.blogs.models import Artical,Tag,Artical_Tag,Touch_Ip,Comment,Artical_Comment
 from django.shortcuts import render_to_response
-
+import datetime
 tags = Tag.objects.all()
 
 def test(request):
@@ -11,7 +11,11 @@ def test(request):
 	
 def artical(request,id):
 	artical=Artical.objects.get(id = id)
-	return render_to_response('artical.html',{'artical':artical,'tags':tags})
+        artical_comments = Artical_Comment.objects.filter(artical_id = id)
+	comment_list = []
+	for artical_comment in artical_comments:
+		comment_list.append(Comment.objects.get(id = artical_comment.comment_id))
+	return render_to_response('artical.html',{'artical':artical,'tags':tags,'comment_list':comment_list})
 
 def articalsInTag(request,id):
 	artical_tags = Artical_Tag.objects.filter(tag_id = id)
@@ -41,3 +45,17 @@ def writeip(request):
 def readip(request):
 	tip = Touch_Ip.objects.get(id = 1)
         return HttpResponse(tip.ip) 
+
+def comment(request):
+	get = request.GET
+	artical_id = get['artical_id']
+	name = get['name']
+	email = get['email']
+	site = get['site']
+	content = get['content']
+	com = Comment(visitor_name=name,visitor_email=email,visitor_site=site,content=content,creation_time=datetime.datetime.now())
+	com.save()	
+        ac=Artical_Comment(artical_id=artical_id,comment_id=com.id)
+	ac.save()
+	return HttpResponse('comments success!') 
+

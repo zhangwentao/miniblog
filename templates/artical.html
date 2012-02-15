@@ -28,6 +28,27 @@
 						<div class="abstract">
 							<h2 class="abstract_title">{{artical.title}}</h2>
 							<p class="abstract_content">{{artical.content}}</p>
+							<div>
+								<p>以下是留言</>
+								{% for comment in comment_list %}
+									<div>
+										{{comment.visitor_name}} 说:<br/>
+										<p>{{comment.content}}</p>	
+									</div>
+								{% endfor %}
+								<p>您可以在下面留言，和我交流</p>
+								<p>
+									<form action="/comment" method="GET">
+										<input type="hidden" name="artical_id" value="{{artical.id}}"/>
+										名字:<input type="text" name="name" value=""/><br/>
+										邮箱:<input type="text" name="email" value=""/><br/>
+										网站:<input type="text" name="site" value=""/><br/>
+										内容:<br/>
+										<textarea name="content"rows="10" cols="30"></textarea><br/>
+										<input type="submit" value="留言"/>
+									</form>	
+								</p>
+							</div>
 							<p><a href="/">[回首页]</a></p>
 						</div>
 					</div>
