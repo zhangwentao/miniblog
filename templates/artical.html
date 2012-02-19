@@ -29,17 +29,22 @@
 							<h2 class="abstract_title">{{artical.title}}</h2>
 							<p class="abstract_content">{{artical.content}}</p>
 							<div>
-								<p>以下是留言</>
-								{% for comment in comment_list %}
-									<div>
-										{{comment.visitor_name}} 说:<br/>
-										<p>{{comment.content}}</p>	
-									</div>
-								{% endfor %}
+								{% if comment_list %}
+									<p>以下是留言</>
+									{% for comment in comment_list %}
+										<div>
+											{{comment.visitor_name}} 说:<br/>
+											<p>{{comment.content}}</p>	
+										</div>
+									{% endfor %}
+								{% else %}
+									<p>此篇文章还没留言哟</p>
+								{% endif %}
 								<p>您可以在下面留言，和我交流</p>
 								<p>
 									<form action="/comment" method="GET">
 										<input type="hidden" name="artical_id" value="{{artical.id}}"/>
+										<input type="hidden" name="page_url" value="{{page_url}}"/>
 										名字:<input type="text" name="name" value=""/><br/>
 										邮箱:<input type="text" name="email" value=""/><br/>
 										网站:<input type="text" name="site" value=""/><br/>

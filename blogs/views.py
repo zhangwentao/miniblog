@@ -1,5 +1,5 @@
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from miniblog.blogs.models import Artical,Tag,Artical_Tag,Touch_Ip,Comment,Artical_Comment
 from django.shortcuts import render_to_response
 import datetime
@@ -15,7 +15,7 @@ def artical(request,id):
 	comment_list = []
 	for artical_comment in artical_comments:
 		comment_list.append(Comment.objects.get(id = artical_comment.comment_id))
-	return render_to_response('artical.html',{'artical':artical,'tags':tags,'comment_list':comment_list})
+	return render_to_response('artical.html',{'artical':artical,'tags':tags,'comment_list':comment_list,'page_url':request.build_absolute_uri()})
 
 def articalsInTag(request,id):
 	artical_tags = Artical_Tag.objects.filter(tag_id = id)
@@ -53,9 +53,9 @@ def comment(request):
 	email = get['email']
 	site = get['site']
 	content = get['content']
+	page_url=get['page_url']
 	com = Comment(visitor_name=name,visitor_email=email,visitor_site=site,content=content,creation_time=datetime.datetime.now())
 	com.save()	
         ac=Artical_Comment(artical_id=artical_id,comment_id=com.id)
 	ac.save()
-	return HttpResponse('comments success!') 
-
+	return HttpResponseRedirect(page_url)
