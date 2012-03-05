@@ -1,12 +1,30 @@
-/* Clearfix */
-.clearfix:after {
-	content: "\20";
-	display: block;
-	clear: both
+h1,h2,h3,h4,p{
+	margin:0px 0px 0px 0px;
+}
+body{
+	background-color:whiteSmoke;
 }
 
-a{
-    text-decoration: none;
+#page{
+	width:800px;
+	padding:50px 20px 30px 20px;
+	border-width:1px;
+	box-shadow: 2px 2px 8px #aaa;
+	background-color:white;
+	margin: auto auto auto auto;
+}
+	
+.clear{
+	clear:both;
+}
+
+#footer{
+	clear:both;
+}
+		
+div{
+//	border:dashed;
+//	border-width:1px;
 }
 
 .artical_title{
@@ -14,13 +32,13 @@ a{
 	font-style:bold;
         font-size:20px;
         color:#2B9A23;
-	margin:0px;
 }
 
 .abstract{
     	position:relative;
-	max-width:540px;
-	float:left;
+	max-width:400px;
+	min-width:300px;
+       	float:left;
 	padding-bottom:0px;
 	
 }
@@ -28,16 +46,17 @@ a{
 {
 	margin:5px 0px 20px 0px;
 	text-indent: 26px;
+	text-align:justify;
+	float:left;
 }
 .article_link
 {
 	font-color:#000000;
 }
 .abstract_box{
-	min-height:60px;
-	max-height:500px;
+	width:500px;
 	padding:10px 0px 0px 0px;
-	position:relative;	
+	border-width:1px;
 }
 .abstract_title
 {
@@ -47,7 +66,6 @@ a{
 {
 	border-bottom:solid;
 	border-bottom-width:2px;
-	margin-bottom:4px;
 
 }
 .box{
@@ -56,28 +74,33 @@ a{
 
 
 .date_box{
-	width:30px;
-	height:30px;
-	padding:10px;
+	width:50px;
+	height:50px;
 	border:dotted;
 	border-width:2px;
-	float:left;	
-	margin:0px 10px 0px 5px;
+	float:left;
+	margin:0px 10px 10px 5px;
+	clear:left;
 }
 .year_month{
-	font-size:10px;
+	font-family:"Microsoft Yahei", "Trebuchet MS", "Microsoft Sans Serif", 'Helvetica Neue';
+	font-size:12px;
 	text-align:center;
-	margin:0px;
+	margin-top:6px;
 	position:relative;
-	left:-7px;
+	left:0px;
+	display:block;
 	top:0px;
-		
+	width:50px;
 }
 
 .day{
-	font-family:黑体;
+	font-family:"Microsoft Yahei", "Trebuchet MS", "Microsoft Sans Serif", 'Helvetica Neue';
 	font-weight:bold;
 	font-size:20px;
+	text-align:center;
+	width:50px;
+	display:block;
 	position:relative;
 	top:0px;
 }
@@ -85,22 +108,14 @@ a{
 
 #blog{
         float:left;
-        width:50%;
-        position:relative;
-        top:100px;
-        left:100px;
 }
 
 #sidebar{
-        position:relative;
+	margin-left:40px;
+	width:260px;
         float:left;
-        width:25%;
-        height:500px;
-        top:100px;
-        left:140px;
-        
 }       
 #header{
-	position:absolute;
-	left:100px;
+	left:40px;
+	margin-bottom:30px;
         }       
