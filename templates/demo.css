@@ -43,6 +43,9 @@ div{
 	padding-bottom:0px;
 	
 }
+#nav_bar{
+	float:right;
+}
 .abstract_content
 {
 	margin:5px 0px 20px 0px;
