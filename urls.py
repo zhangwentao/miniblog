@@ -24,5 +24,5 @@ urlpatterns = patterns('',
 	(r'^blog/(?P<id>\d+)/$',artical),
 	(r'^articalsInTag/(?P<id>\d+)/$',articalsInTag),
 	(r'^about/$',about),
-	(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': '/home/wentao_zhang/wentao.me/static/'}),
+	(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': '/home/wentao_zhang/django_projects/miniblog/templates'}),
 )
