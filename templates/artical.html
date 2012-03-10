@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
-		<title>IT 工匠</title>
+		<title>文韬的BLOG</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="language" content="en" />
 		<meta name="description" content="" />
@@ -23,7 +23,7 @@
 				</div>
 
 				<div id="blog">
-					<h4 class="subtitle">文章</h4>
+					<h4 class="subtitle">文章全文</h4>
 						<div class="abstract_box">
 							<div class="date_box">
 								<span class="year_month">{{artical.creation_time.year}}.{{artical.creation_time.month}}</span>
@@ -32,19 +32,19 @@
 							<div class="abstract">
 								<h2 class="abstract_title">{{artical.title}}</h2>
 								<p class="abstract_content">{{artical.content}}</p>
-								<div>
+								<div class="clear">
 									{% if comment_list %}
-										<p>以下是留言</>
+										<p style="margin-bottom:10px">{{com_num}}条评论>></p>
 										{% for comment in comment_list %}
-											<div>
+											<div style="margin-bottom:5px">
 												{{comment.visitor_name}} 说:<br/>
-												<p>{{comment.content}}</p>	
+												<p style="text-indent:26px">{{comment.content}}</p>	
 											</div>
 										{% endfor %}
 									{% else %}
 										<p>此篇文章还没留言哟</p>
 									{% endif %}
-									<p>您可以在下面留言，和我交流</p>
+									<p style="margin-top:10px">您可以在下面留言，和我交流>></p>
 									<p>
 										<form action="/comment" method="GET">
 											<input type="hidden" name="artical_id" value="{{artical.id}}"/>
@@ -53,7 +53,7 @@
 											邮箱:<input type="text" name="email" value=""/><br/>
 											网站:<input type="text" name="site" value=""/><br/>
 											内容:<br/>
-											<textarea name="content"rows="10" cols="30"></textarea><br/>
+											<textarea name="content"rows="5" cols="50"></textarea><br/>
 											<input type="submit" value="留言"/>
 										</form>	
 									</p>

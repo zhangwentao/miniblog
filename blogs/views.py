@@ -15,7 +15,7 @@ def artical(request,id):
 	comment_list = []
 	for artical_comment in artical_comments:
 		comment_list.append(Comment.objects.get(id = artical_comment.comment_id))
-	return render_to_response('artical.html',{'artical':artical,'tags':tags,'comment_list':comment_list,'page_url':request.build_absolute_uri()})
+	return render_to_response('artical.html',{'artical':artical,'tags':tags,'comment_list':comment_list,'page_url':request.build_absolute_uri(),"com_num":len(comment_list)})
 
 def articalsInTag(request,id):
 	artical_tags = Artical_Tag.objects.filter(tag_id = id)
