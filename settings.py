@@ -1,6 +1,8 @@
 # Django settings for myblog project.
-
-DEBUG = False
+import sys
+sys.path.append('/home/wentao/Documents/lab/django')
+import accountbook
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -13,9 +15,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'wentao_blog',                      # Or path to database file if using sqlite3.
-        'USER': 'wentaome',                      # Not used with sqlite3.
-        'PASSWORD': 'wentao',                  # Not used with sqlite3.
-        'HOST': 'mysql.wentao.me',                      # Set to empty string for localhost. Not used with sqlite3.
+        'USER': 'root',                      # Not used with sqlite3.
+        'PASSWORD': 'root',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
@@ -69,6 +71,7 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    '/home/wentao/Documents/lab/django/miniblog/templates/',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -103,7 +106,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'miniblog.urls'
 
 TEMPLATE_DIRS = (
-	"/home/wentao_zhang/django_projects/miniblog/templates",
+	'/home/wentao/Documents/lab/django/miniblog/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -115,10 +118,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-   # 'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
     'miniblog.blogs',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    'accountbook',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

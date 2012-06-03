@@ -3,6 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from miniblog.blogs.models import Artical,Tag,Artical_Tag,Touch_Ip,Comment,Artical_Comment
 from django.shortcuts import render_to_response
 import datetime
+
 tags = Tag.objects.all()
 
 def test(request):
@@ -16,7 +17,7 @@ def artical(request,id):
 	for artical_comment in artical_comments:
 		comment_list.append(Comment.objects.get(id = artical_comment.comment_id))
 	return render_to_response('artical.html',{'artical':artical,'tags':tags,'comment_list':comment_list,'page_url':request.build_absolute_uri(),"com_num":len(comment_list)})
-
+#	return HttpResponse(artical.content)
 def articalsInTag(request,id):
 	artical_tags = Artical_Tag.objects.filter(tag_id = id)
 	artical_list = []

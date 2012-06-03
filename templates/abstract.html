@@ -1,66 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<title>文韬的BLOG</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="language" content="en" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link type="text/css" href="http://wentao.me/site_media/demo.css" rel="stylesheet"/>
-		<script type="text/javascript">
-			  var _gaq = _gaq || [];
-			  _gaq.push(['_setAccount', 'UA-28177213-1']);
-			  _gaq.push(['_trackPageview']);
-			
-			  (function() {
-			    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			  })();
-		</script>
-	</head>
-
-	<body>
-		<div id="page">
-			<div id="header">
-					<h1><a href="/">文韬的BLOG</a></h1>
-					<div id="nav_bar">
-						<h3><a href="/about/">关于我</a></h3>
-					</div>
+{% extends "base.html" %}
+{% block blog %}
+	<h4 class="subtitle">文章</h4>
+	{% for p in artical_list %}
+		<div class="abstract_box">
+			<div class="date_box">
+				<span class="year_month">{{p.creation_time.year}}.{{p.creation_time.month}}</span>
+				<span class="day">{{p.creation_time.day}}</span>	
+			</div>	
+			<div class="abstract">
+				<h2 class="abstract_title"><a href="/blog/{{p.id}}/">{{p.title}}</a></h2>
+				<p class="abstract_content">{{p.content|striptags|slice:"120"}}...</p>
 			</div>
-	
-			<div id="blog">
-				<h4 class="subtitle">文章</h4>
-				{% for p in artical_list %}
-					<div class="abstract_box">
-						<div class="date_box">
-							<span class="year_month">{{p.creation_time.year}}.{{p.creation_time.month}}</span>
-                	                                <span class="day">{{p.creation_time.day}}</span>	
-						</div>	
-						<div class="abstract">
-							<h2 class="abstract_title"><a href="/blog/{{p.id}}/">{{p.title}}</a></h2>
-							<p class="abstract_content">{{p.content|slice:"120"}}...</p>
-						</div>
-						<div class="clear">
-						</div>
-					</div>
-				{% endfor %}
-			</div>
-
-			<div id="sidebar">
-				<div class= "box">
-				<h4 class="subtitle">标签</h4>
-				{% for tag in tags %}
-					<a href="/articalsInTag/{{tag.id}}/">{{tag.name}}</a>		
-				{% endfor %}
-				</div>
-			</div>
-			<div id="footer">
-				<p style="float:right">	
-       					 <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Transitional" height="31" width="88"/></a>
-  				</p>
-				<p class="clear">版权所有@2011-2012 文韬的BLOG.</p>
+			<div class="clear">
 			</div>
 		</div>
-	</body>
- </html>
+	{% endfor %}
+{% endblock %}
