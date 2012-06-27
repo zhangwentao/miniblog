@@ -23,7 +23,8 @@
 			{% endif %}
 			<p style="margin-top:10px">您可以在下面留言，和我交流>></p>
 			<p>
-				<form action="/comment" method="GET">
+				<form action="/comment" method="POST">
+					{% csrf_token %}
 					<input type="hidden" name="artical_id" value="{{artical.id}}"/>
 					<input type="hidden" name="page_url" value="{{page_url}}"/>
 					名字:<input type="text" name="name" value=""/><br/>

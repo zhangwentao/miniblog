@@ -1,7 +1,9 @@
 from django.db import models
 
 class Tag(models.Model):
-	name= models.CharField(max_length = 50)
+	name = models.CharField(max_length = 50)
+	creation_time = models.DateTimeField(auto_now_add = True)
+	modified_time = models.DateTimeField(auto_now = True)
 
 class Artical(models.Model):
 	title = models.CharField(max_length = 50)
@@ -23,7 +25,3 @@ class Artical_Tag(models.Model):
 class Artical_Comment(models.Model):
 	artical_id = models.BigIntegerField()
 	comment_id = models.BigIntegerField()
-
-class Touch_Ip(models.Model):
-	ip = models.CharField(max_length = 30)
-

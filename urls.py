@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
-from blogs.views import test,draw,cross,artical,articalsInTag,writeip,readip,about,ip,comment
+from blogs.views import test,artical,articalsInTag,about,comment
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 import accountbook.urls
@@ -16,13 +16,8 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accountbook/',include('accountbook.urls')),
-	(r'^draw/$',draw),
 	(r'^$',test),
 	(r'^comment$',comment),
-	(r'^ip/$',ip),
-	(r'^writeip$',writeip),
-	(r'^readip$',readip),
-	(r'^crossdomain.xml$',cross),
 	(r'^blog/(?P<id>\d+)/$',artical),
 	(r'^articalsInTag/(?P<id>\d+)/$',articalsInTag),
 	(r'^about/$',about),
