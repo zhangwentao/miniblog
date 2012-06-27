@@ -17,11 +17,12 @@ class Comment(models.Model):
 	visitor_site = models.CharField(max_length = 50)
 	content = models.TextField(max_length = 20000)
 	creation_time = models.DateTimeField(auto_now_add = True)
+	artical = models.ForeignKey('Artical')
 
 class Artical_Tag(models.Model):
-	artical_id = models.BigIntegerField()
-	tag_id	= models.BigIntegerField()
+	artical = models.ForeignKey('Artical')
+	tag = models.ForeignKey('Tag')
 
-class Artical_Comment(models.Model):
-	artical_id = models.BigIntegerField()
-	comment_id = models.BigIntegerField()
+#class Artical_Comment(models.Model):
+#	artical = models.ForeignKey('Artical')
+#	comment = models.ForeignKey('Comment')
