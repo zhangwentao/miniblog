@@ -11,7 +11,7 @@
 		<p class="abstract_content">{{artical.content|safe}}</p>
 		<div class="clear">
 			{% if comment_list %}
-				<p style="margin-bottom:10px">{{com_num}}条评论>></p>
+				<p style="margin-bottom:10px">{{comment_list|length}}条评论>></p>
 				{% for comment in comment_list %}
 					<div style="margin-bottom:5px">
 						{{comment.visitor_name}} 说:<br/>
