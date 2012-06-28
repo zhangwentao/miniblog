@@ -22,7 +22,3 @@ class Comment(models.Model):
 class Artical_Tag(models.Model):
 	artical = models.ForeignKey('Artical')
 	tag = models.ForeignKey('Tag')
-
-#class Artical_Comment(models.Model):
-#	artical = models.ForeignKey('Artical')
-#	comment = models.ForeignKey('Comment')
