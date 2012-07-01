@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block blog %}
-<h4 class="subtitle">文章全文</h4>
+{% load markup %}
 <div class="abstract_box">
 	<div class="date_box">
 		<span class="year_month">{{artical.creation_time.year}}.{{artical.creation_time.month}}</span>
@@ -8,7 +8,7 @@
 	</div>	
 	<div class="abstract">
 		<h2 class="abstract_title">{{artical.title}}</h2>
-		<p class="abstract_content">{{artical.content|safe}}</p>
+		<div class="abstract_content">{{artical.content|safe|markdown}}</div>
 		<div class="clear">
 			{% if comment_list %}
 				<p style="margin-bottom:10px">{{comment_list|length}}条评论>></p>
@@ -22,7 +22,7 @@
 				<p>此篇文章还没留言哟</p>
 			{% endif %}
 			<p style="margin-top:10px">您可以在下面留言，和我交流>></p>
-			<p>
+			<div>
 				<form action="/comment" method="POST">
 					{% csrf_token %}
 					<input type="hidden" name="artical_id" value="{{artical.id}}"/>
@@ -34,7 +34,7 @@
 					<textarea name="content"rows="5" cols="50"></textarea><br/>
 					<input type="submit" value="留言"/>
 				</form>	
-			</p>
+			</div>
 		</div>
 		<p><a href="/">[回首页]</a></p>
 	</div>

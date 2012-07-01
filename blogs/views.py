@@ -4,22 +4,29 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 import datetime
 
-tags = Tag.objects.all()
 
 def home(request):
+	tags = Tag.objects.all()
 	artical_list = Artical.objects.all()
 	return render_to_response('abstract.html',{'artical_list':artical_list,'tags':tags})
 	
 def artical(request,id):
+	tags = Tag.objects.all()
 	artical=Artical.objects.get(id = id)
         comment_list = Comment.objects.filter(artical = artical)
-	return render_to_response('artical.html',{'artical':artical,'tags':tags,'comment_list':comment_list,'page_url':request.build_absolute_uri()},context_instance=RequestContext(request))
+	response_dic = {'artical':artical,
+			'tags':tags,
+			'comment_list':comment_list,
+			'page_url':request.build_absolute_uri()}
+	return render_to_response('artical.html',response_dic,context_instance=RequestContext(request))
 
 def articalsInTag(request,id):
-	artical_tags = Artical_Tag.objects.filter(tag_id = id)
+	tags = Tag.objects.all()
+	tag = Tag.objects.get(id = id)
+	artical_tags = Artical_Tag.objects.filter(tag = tag)
 	artical_list = []
 	for artical_tag in artical_tags:
-		artical_list.append(Artical.objects.get(id = artical_tag.artical_id))
+		artical_list.append(Artical.objects.get(id = artical_tag.artical.id))
 	return render_to_response('abstract.html',{'artical_list':artical_list,'tags':tags})
 
 def about(req):

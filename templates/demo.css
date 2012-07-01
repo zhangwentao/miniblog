@@ -1,109 +1,81 @@
 h1,h2,h3,h4,p{
 	margin:0px 0px 0px 0px;
 }
+a{
+	text-decoration:none;
+}
 body{
 	background-color:whiteSmoke;
+	font-family:arial,sans-serif;
 }
-
-#page{
-	width:800px;
-	padding:50px 20px 10px 20px;
-	border-width:1px;
-	box-shadow: 2px 2px 8px #aaa;
-	background-color:white;
-	margin: auto auto auto auto;
-}
-	
-.clear{
-	clear:both;
-}
-
-#footer{
-	margin-top:50px;
-	clear:both;
-	font-size:10px;
-}
-
-	
-		
-
 div{
 //	border:dashed;
 //	border-width:1px;
 }
 
 .artical_title{
-        font-family:黑体;
-	font-style:bold;
+	font-style:bolder;
         font-size:20px;
         color:#2B9A23;
 }
-
+.clear{
+	clear:both;
+}
 .abstract{
     	position:relative;
-	max-width:400px;
-	min-width:300px;
+//	max-width:400px;
+//	min-width:300px;
+	width:500px;
        	float:left;
 	padding-bottom:0px;
 	
 }
-#nav_bar{
-	float:right;
-}
-.abstract_content
-{
+
+.abstract_content{
 	margin:5px 0px 20px 0px;
 	text-indent: 26px;
-	text-align:justify;
 	float:left;
 }
-.article_link
-{
+p.abstract_content{
+	text-indent:2em;
+	text-align:justify;
+}
+.article_link{
 	font-color:#000000;
 }
 .abstract_box{
-	width:500px;
+	width:600px;
 	padding:10px 0px 0px 0px;
 	border-width:1px;
 }
-.abstract_title
-{
+.abstract_title{
 	margin:0px;
 }
-.subtitle
-{
+.subtitle{
 	border-bottom:solid;
 	border-bottom-width:2px;
-
 }
-.box{
-}
-
-
-
 .date_box{
 	width:50px;
-	height:50px;
-	border:dotted;
-	border-width:2px;
+	height:42px;
+	padding-right:8px;
+	border-right:solid;
+	border-width:1px;
 	float:left;
 	margin:0px 10px 10px 5px;
 	clear:left;
 }
 .year_month{
-	font-family:"Microsoft Yahei", "Trebuchet MS", "Microsoft Sans Serif", 'Helvetica Neue';
+	margin-top:2px;
 	font-size:12px;
 	text-align:center;
-	margin-top:6px;
 	position:relative;
 	left:0px;
 	display:block;
 	top:0px;
 	width:50px;
 }
-
 .day{
-	font-family:"Microsoft Yahei", "Trebuchet MS", "Microsoft Sans Serif", 'Helvetica Neue';
 	font-weight:bold;
 	font-size:20px;
 	text-align:center;
@@ -113,11 +85,11 @@ div{
 	top:0px;
 }
 
-
 #blog{
         float:left;
+	margin-top:20px;
+	margin-bottom:30px;
 }
-
 #sidebar{
 	margin-left:40px;
 	width:260px;
@@ -125,5 +97,25 @@ div{
 }       
 #header{
 	left:40px;
-	margin-bottom:30px;
-        }       
+	margin-bottom:10px;
+}
+#page{
+	width:600px;
+	padding:30px 20px 10px 20px;
+	border-width:1px;
+	box-shadow: 2px 2px 8px #aaa;
+	background-color:white;
+	margin: auto auto auto auto;
+}       
+
+#footer{
+//	margin-top:20px;
+	clear:both;
+	font-size:10px;
+}
+#copyright{
+	text-align:center;
+}
+#nav_bar{
+	float:right;
+}
