@@ -2,39 +2,49 @@
 {% block blog %}
 {% load markup %}
 <div class="abstract_box">
-	<div class="date_box">
+<!--	<div class="date_box">
 		<span class="year_month">{{artical.creation_time.year}}.{{artical.creation_time.month}}</span>
 		<span class="day">{{artical.creation_time.day}}</span>
 	</div>	
-	<div class="abstract">
-		<h2 class="abstract_title">{{artical.title}}</h2>
-		<div class="abstract_content">{{artical.content|safe|markdown}}</div>
-		<div class="clear">
+-->
+	<div class="artical">
+		<h2 class="artical_title">{{artical.title}}</h2>
+		<div class="artical_content">{{artical.content|safe|markdown}}</div>
+		<div class="clear"></div>
+		<hr style="border-style:dashed;border-width:1px 0px 0px 0px;margin:50px 30px 20px 30px"/>
+		<div class="clear"></div>
+		<div class="comment_box">
 			{% if comment_list %}
 				<p style="margin-bottom:10px">{{comment_list|length}}条评论>></p>
 				{% for comment in comment_list %}
-					<div style="margin-bottom:5px">
-						{{comment.visitor_name}} 说:<br/>
-						<p style="text-indent:26px">{{comment.content}}</p>	
+					<div style="margin-bottom:5px;border:solid;border-width:1px;border-color:whitesmoke;">
+						<div style="float:left;position:relative;top:8px;margin-right:10px;">
+							<img src="/site_media/head.png" width="32px" height="32px" style="position:relative;top:-6px;border:solid 1px gray;"/>
+						</div>
+						<div>
+							<a href="" style="border-bottom:solid 1px grey;">{{comment.visitor_name}}</a>
+							<p>{{comment.content}}</p>	
+						</div>
+						<div class="clear"></div>
 					</div>
 				{% endfor %}
 			{% else %}
-				<p>此篇文章还没留言哟</p>
+			<p>此篇文章还没留言哟</p>
 			{% endif %}
-			<p style="margin-top:10px">您可以在下面留言，和我交流>></p>
-			<div>
-				<form action="/comment" method="POST">
-					{% csrf_token %}
-					<input type="hidden" name="artical_id" value="{{artical.id}}"/>
-					<input type="hidden" name="page_url" value="{{page_url}}"/>
-					名字:<input type="text" name="name" value=""/><br/>
-					邮箱:<input type="text" name="email" value=""/><br/>
-					网站:<input type="text" name="site" value=""/><br/>
-					内容:<br/>
-					<textarea name="content"rows="5" cols="50"></textarea><br/>
-					<input type="submit" value="留言"/>
-				</form>	
-			</div>
+		</div>
+		<p style="margin-top:10px">您可以在下面留言，和我交流>></p>
+		<div>
+			<form action="/comment" method="POST">
+				{% csrf_token %}
+				<input type="hidden" name="artical_id" value="{{artical.id}}"/>
+				<input type="hidden" name="page_url" value="{{page_url}}"/>
+				名字:<input type="text" name="name" value=""/><br/>
+				邮箱:<input type="text" name="email" value=""/><br/>
+				网站:<input type="text" name="site" value=""/><br/>
+				内容:<br/>
+				<textarea name="content"rows="5" cols="50"></textarea><br/>
+				<input type="submit" value="留言"/>
+			</form>	
 		</div>
 		<p><a href="/">[回首页]</a></p>
 	</div>

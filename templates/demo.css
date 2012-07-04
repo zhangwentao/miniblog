@@ -16,24 +16,32 @@ div{
 .artical_title{
 	font-style:bolder;
         font-size:20px;
-        color:#2B9A23;
+	margin-bottom:15px;
+	text-align:center;
 }
 .clear{
 	clear:both;
 }
 .abstract{
     	position:relative;
-//	max-width:400px;
-//	min-width:300px;
 	width:500px;
        	float:left;
 	padding-bottom:0px;
-	
 }
-
+.artical{
+	position:relative;
+	width:500px;
+       	float:left;
+	left:50px;
+}
 .abstract_content{
 	margin:5px 0px 20px 0px;
 	text-indent: 26px;
+	float:left;
+}
+.artical_content{
+	margin:5px 0px 20px 0px;
+	text-indent: 2em;
 	float:left;
 }
 p.abstract_content{
@@ -51,6 +59,7 @@ p.abstract_content{
 .abstract_title{
 	margin:0px;
 }
+
 .subtitle{
 	border-bottom:solid;
 	border-bottom-width:2px;
