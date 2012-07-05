@@ -1,37 +1,19 @@
-<!doctype html>
-<html>
-	<head>
-		<title>关于文韬</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="language" content="en" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link type="text/css" href="http://wentao.me/site_media/demo.css" rel="stylesheet"/>
-	</head>
-
-	<body>
-		<div id="page">
-			<div>	
-				<h1>关于文韬</h1>
-				</br>
-				<p class="abstract_content">
-				想要用计算机技术做出，实用，有趣，让人眼前一亮，内心赞叹的东西。
-				当然，我也喜欢这个制作的过程，这种感觉就像，吉他手演绎一首让人
-                	        热血沸腾的乐曲时，不但娱乐了别人，自己更是沉浸演奏的快感之中。
-				这就是我：一个IT工匠。现效力于<a href="http://fed.renren.com">人人网FED</a>
-				从事actionscript应用开发。                        
-                	       </p> 
-				<p>
-				       在这些地方可以找到我,多多交流啊 haha： 
-					<ul>
-						<li><a href="http://zhangwentao.renren.com">人人</a></li>
-						<li><a href="http://weibo.com/taoofme">微博</a></li>
-						<li><a href="http://blog.csdn.net/salfishark">CSDN</a></li>
-						<li><a href="https://github.com/zhangwentao">github</a></li>
-					</ul>
-					<a href="/">[回首页]</a>
-			      </p>		       
-			</div>
-		</div>
-	</body>
-</html> 
+{% extends "base.html" %}
+{% block blog %}
+<p style="text-indent:2em;">
+	想要用计算机技术做出，实用，有趣，让人眼前一亮，内心赞叹的东西。
+	当然，我也喜欢这个制作的过程，这种感觉就像，吉他手演绎一首让人
+	热血沸腾的乐曲时，不但娱乐了别人，自己更是沉浸演奏的快感之中。
+	这就是我：一个IT工匠。现效力于<a href="http://fed.renren.com">人人网FED</a>
+	从事actionscript应用开发。                        
+</p> 
+<p style="text-indent:2em;">
+        在这些地方可以找到我,多多交流啊 haha： 
+	<ul>
+		<li><a href="http://zhangwentao.renren.com">人人</a></li>
+		<li><a href="http://weibo.com/taoofme">微博</a></li>
+		<li><a href="http://blog.csdn.net/salfishark">CSDN</a></li>
+		<li><a href="https://github.com/zhangwentao">github</a></li>
+	</ul>
+</p>		       
+{% endblock %}

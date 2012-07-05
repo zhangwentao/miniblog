@@ -15,15 +15,16 @@
 		<div class="clear"></div>
 		<div class="comment_box">
 			{% if comment_list %}
-				<p style="margin-bottom:10px">{{comment_list|length}}条评论>></p>
+				<p style="margin-bottom:10px">{{comment_list|length}}条评论</p>
 				{% for comment in comment_list %}
 					<div style="margin-bottom:5px;border:solid;border-width:1px;border-color:whitesmoke;">
 						<div style="float:left;position:relative;top:8px;margin-right:10px;">
-							<img src="/site_media/head.png" width="32px" height="32px" style="position:relative;top:-6px;border:solid 1px gray;"/>
+							<img src="/site_media/head.png" width="32px" height="32px" style="position:relative;top:-5px;border:solid 1px gray;margin-left:4px;"/>
 						</div>
 						<div>
 							<a href="" style="border-bottom:solid 1px grey;">{{comment.visitor_name}}</a>
-							<p>{{comment.content}}</p>	
+							<a style="font-size:10px;"> at {{comment.creation_time}}</a>
+							<p style="text-align:justify;padding: 0px 4px 2px 4px;">{{comment.content}}</p>	
 						</div>
 						<div class="clear"></div>
 					</div>
@@ -32,8 +33,8 @@
 			<p>此篇文章还没留言哟</p>
 			{% endif %}
 		</div>
-		<p style="margin-top:10px">您可以在下面留言，和我交流>></p>
-		<div>
+		<p style="margin-top:10px">您可以在下面留言，和我交流</p>
+		<div style="border:1px dashed;padding:5px;">
 			<form action="/comment" method="POST">
 				{% csrf_token %}
 				<input type="hidden" name="artical_id" value="{{artical.id}}"/>
@@ -42,11 +43,11 @@
 				邮箱:<input type="text" name="email" value=""/><br/>
 				网站:<input type="text" name="site" value=""/><br/>
 				内容:<br/>
-				<textarea name="content"rows="5" cols="50"></textarea><br/>
+				<textarea name="content"rows="5" cols="57"></textarea><br/>
 				<input type="submit" value="留言"/>
 			</form>	
 		</div>
-		<p><a href="/">[回首页]</a></p>
+	<!--	<p><a href="/">[回首页]</a></p>-->
 	</div>
 </div>
 {% endblock %}				

@@ -12,6 +12,9 @@ div{
 //	border:dashed;
 //	border-width:1px;
 }
+input{
+	width:15em;
+}
 
 .artical_title{
 	font-style:bolder;
