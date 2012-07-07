@@ -3,8 +3,7 @@ from miniblog.blogs.models import Artical,Tag,Artical_Tag,Comment
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 import datetime
-
-
+import re
 def home(request):
 	tags = Tag.objects.all()
 	artical_list = Artical.objects.all()
@@ -40,7 +39,19 @@ def comment(request):
 	site = post['site']
 	content = post['content']
 	page_url=post['page_url']
+	if name == '' or email == '' or content == '':
+		return HttpResponse("name email content can't empty")	
+	if validateEmailAddr(email) == False:
+		return HttpResponse("invalidate email address!")	
 	artical=Artical.objects.get(id = artical_id)
 	com = Comment(visitor_name=name,visitor_email=email,visitor_site=site,content=content,artical = artical)
 	com.save()	
 	return HttpResponseRedirect(page_url)
+
+def validateEmailAddr(addrString):
+	pattern = re.compile("\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*")	
+	result = re.search(pattern,addrString)
+	if result == None:
+		return False
+	else:
+		return True 

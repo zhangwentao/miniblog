@@ -1,9 +1,10 @@
 <!doctype html>
 <html>
 	<head>
-		<title>文韬的布落格儿</title>
+		<title>文韬的BLOG</title>
 		<meta charset=utf-8" />
-		<link href="/site_media/demo.css" rel="stylesheet">
+		<link href="/static/tea.ico" rel="shortcut icon">
+		<link href="/static/base.css" rel="stylesheet">
 		<script>
 			  var _gaq = _gaq || [];
 			  _gaq.push(['_setAccount', 'UA-28177213-1']);
@@ -19,31 +20,20 @@
 	<body>
 		<div id="page">
 			<div id="header">
-					<h1><a href="/">文韬的布落格儿</a></h1>
-					<div id="nav_bar">
-						<h3><a href="/about/">关于</a></h3>
-					</div>
-			<div class="clear"></div>
+				<h1><a href="/">文韬的BLOG</a></h1>
+				<div id="nav_bar">
+					<h3><a href="/about/">关于</a></h3>
+				</div>
+				<div class="clear"></div>
 			</div>
 			<hr/>	
 			<div id="blog">
 				{% block blog %}
 				{% endblock %}				
 			</div>
-			<!--<div class="clear"></div>-->
-			<!--
-			<div id="sidebar">
-				<div class= "box">
-				<h4 class="subtitle">标签</h4>
-				{% for tag in tags %}
-					<a href="/articalsInTag/{{tag.id}}/">{{tag.name}}</a>		
-				{% endfor %}
-				</div>
-			</div>
-			-->
 			<hr/>	
 			<div id="footer">
-				<p id="copyright" class="clear">copyright&copy2011-2012 文韬的BLOG</p>
+				<p id="copyright" class="clear">copyright &copy 2011-2012 文韬的BLOG</p>
 			</div>
 		</div>
 	</body>
