@@ -1,3 +1,4 @@
+# coding:utf-8
 from django.http import HttpResponse,HttpResponseRedirect
 from miniblog.blogs.models import Artical,Tag,Artical_Tag,Comment
 from django.shortcuts import render_to_response
@@ -11,7 +12,11 @@ def home(request):
 	
 def artical(request,id):
 	tags = Tag.objects.all()
-	artical=Artical.objects.get(id = id)
+	try:
+		artical=Artical.objects.get(id = id)
+	except:
+		print 'error'
+		return render_to_response('500.html',{'reason':'noThisArtical'});
         comment_list = Comment.objects.filter(artical = artical)
 	response_dic = {'artical':artical,
 			'tags':tags,
@@ -40,9 +45,9 @@ def comment(request):
 	content = post['content']
 	page_url=post['page_url']
 	if name == '' or email == '' or content == '':
-		return HttpResponse("name email content can't empty")	
+		return render_to_response("error.html",{"reason":"姓名、邮箱和内容是必填的。"})	
 	if validateEmailAddr(email) == False:
-		return HttpResponse("invalidate email address!")	
+		return render_to_response("error.html",{"reason":"你的邮箱地址的格式不对。"})	
 	artical=Artical.objects.get(id = artical_id)
 	com = Comment(visitor_name=name,visitor_email=email,visitor_site=site,content=content,artical = artical)
 	com.save()	

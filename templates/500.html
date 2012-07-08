@@ -1,4 +1,9 @@
 {% extends "base.html" %}
 {% block blog %}
-<h1 style="text-align:center;">500 了</h1>
+<h1>500</h1>
+<p style="text-align:center;">
+{% if reason == 'noThisArtical' %}
+	没有找到这个url指向的文章
+{% endif %}
+</p>
 {% endblock %}
