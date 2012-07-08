@@ -2,6 +2,7 @@ from django.conf.urls.defaults import patterns, include, url
 from blogs.views import home,artical,articalsInTag,about,comment
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+import os
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -18,5 +19,5 @@ urlpatterns = patterns('',
 	(r'^blog/(?P<id>\d+)/$',artical),
 	(r'^articalsInTag/(?P<id>\d+)/$',articalsInTag),
 	(r'^about/$',about),
-	(r'^static/(?P<path>.*)$', 'django.views.static.serve',{'document_root': '/home/wentao/Documents/lab/django/miniblog/templates'}),
+	(r'^static/(?P<path>.*)$', 'django.views.static.serve',{'document_root': os.getcwd()+'/static'}),
 )
