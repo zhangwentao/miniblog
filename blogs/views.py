@@ -3,7 +3,10 @@ from django.http import HttpResponse,HttpResponseRedirect
 from miniblog.blogs.models import Artical,Tag,Artical_Tag,Comment
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.contrib.syndication.views import Feed 
+from blogs.models import Artical
 import datetime
+import markdown
 import re
 def home(request):
 	tags = Tag.objects.all()
@@ -60,3 +63,16 @@ def validateEmailAddr(addrString):
 		return False
 	else:
 		return True 
+
+class BlogFeed(Feed):
+	title = "文韬的BLOG"
+	link = 'http://wentao.me'
+	description = "wentao's blog"	
+	def items(self):
+		return Artical.objects.all()
+	def item_title(self,item):
+		return item.title
+	def item_link(self,item):
+		return self.link+'/blog/'+str(item.id)+'/'
+	def item_description(self,item):
+		return markdown.markdown(item.content)
